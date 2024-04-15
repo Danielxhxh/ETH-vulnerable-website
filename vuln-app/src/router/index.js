@@ -32,5 +32,9 @@ export default createRouter({
       component: () => import("../views/productdetails.vue"),
       props: true,
     },
+    {
+      path: "/media",
+      component: () => import("../views/media.vue"),
+    },
   ],
 });

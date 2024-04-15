@@ -4,7 +4,7 @@
     <div class="card-content">
       <h3 class="card-title">{{ product.name }}</h3>
       <p class="card-description">{{ product.description }}</p>
-      <p class="card-price">{{ product.price }}</p>
+      <p class="card-price">${{ product.price }}</p>
     </div>
   </div>
 </template>

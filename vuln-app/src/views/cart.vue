@@ -27,6 +27,8 @@
   </div>
   <div v-else>
     <p>Please log in to view your cart.</p>
+
+    <router-link to="/login" class="link">Login</router-link>
   </div>
 </template>
 
@@ -79,7 +81,7 @@ export default {
       );
       const data = await response.json();
       if (data.message === "Token is valid") {
-        alert("Products bought successfully!!");
+        alert("Products bought successfully!");
         localStorage.removeItem("cart");
         this.cartItems = [];
         this.totalPrice = 0;

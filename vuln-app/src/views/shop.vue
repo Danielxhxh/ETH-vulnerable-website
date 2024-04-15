@@ -10,6 +10,8 @@
       />
     </div>
   </div>
+
+  <router-link to="/" class="link">Homepage</router-link>
 </template>
 
 <script>

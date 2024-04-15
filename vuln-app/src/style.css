@@ -75,6 +75,18 @@ button:focus-visible {
   text-align: center;
 }
 
+.link {
+  font-size: 1.5rem;
+  font-style: none;
+  color: green;
+  transition: all 1.3s;
+}
+.link:hover {
+  font-size: 1.7rem;
+  text-decoration: underline;
+  color: green;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

@@ -122,3 +122,5 @@ exports.getUser = async (req, res) => {
 exports.checkToken = async (req, res) => {
   return res.status(200).json({ message: "Token is valid" });
 };
+
+// exports.addProduct = async (req, res) => {};

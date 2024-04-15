@@ -9,7 +9,7 @@
       class="product-image"
       style="width: 100%"
     />
-
+    <br />
     <button @click="addToCart(product)" class="action-button add-to-cart">
       Add to Cart
     </button>
@@ -17,8 +17,8 @@
     <router-link to="/cart" class="action-button view-cart"
       >View Cart</router-link
     >
-
-    <button @click="goBack" class="action-button go-back">Go Back</button>
+    <br />
+    <router-link to="/shop" class="link">Shop</router-link>
   </div>
 </template>
 
@@ -47,10 +47,6 @@ export default {
         });
     };
 
-    function goBack() {
-      window.history.back();
-    }
-
     function addToCart(product) {
       let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
       let existingItem = cartItems.find((item) => item.name === product.name);
@@ -62,6 +58,7 @@ export default {
       }
 
       localStorage.setItem("cart", JSON.stringify(cartItems));
+      alert("Product added to cart!");
     }
 
     function getCartItems() {
@@ -70,7 +67,6 @@ export default {
 
     return {
       product,
-      goBack,
       addToCart,
       getCartItems,
     };
@@ -79,6 +75,9 @@ export default {
 </script>
 
 <style scoped>
+button {
+  margin: 10px;
+}
 .product-detail {
   max-width: 600px;
   margin: 0 auto;
@@ -99,11 +98,11 @@ export default {
 .price {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #007bff; /* Blue color for price */
+  color: #ff5722; /* Blue color for price */
 }
 
 .product-image {
-  max-width: 100%;
+  max-width: 400px;
   height: auto;
   margin-top: 20px;
   border-radius: 5px;

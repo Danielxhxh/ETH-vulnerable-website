@@ -27,15 +27,4 @@ import { ref } from "vue";
   justify-content: center;
   gap: 20px;
 }
-
-.links-div .link {
-  font-size: 1.5rem;
-  font-style: none;
-  color: green;
-  transition: all 1.3s;
-}
-.links-div .link:hover {
-  font-size: 1.7rem;
-  text-decoration: underline;
-}
 </style>

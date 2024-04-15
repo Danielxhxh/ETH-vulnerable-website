@@ -3,6 +3,9 @@
     <h1>Profile</h1>
     <div>
       <p>
+        ID: <span>{{ profile.user.id }}</span>
+      </p>
+      <p>
         Username: <span>{{ profile.user.username }}</span>
       </p>
       <p>
@@ -12,9 +15,12 @@
     </div>
     <button @click="logOut">Log Out</button>
   </div>
+
   <div v-else>
     <p>Please, login first.</p>
   </div>
+
+  <h2><router-link to="/" class="link">Homepage</router-link></h2>
 </template>
 
 <script>
