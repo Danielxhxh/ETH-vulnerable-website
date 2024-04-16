@@ -1,5 +1,6 @@
 const mysql = require("mysql2/promise");
 const jwt = require("jsonwebtoken");
+const { exec } = require("child_process");
 const bcrypt = require("bcrypt");
 require("dotenv").config();
 let connection;
@@ -124,4 +125,60 @@ exports.checkToken = async (req, res) => {
   return res.status(200).json({ message: "Token is valid" });
 };
 
-// exports.addProduct = async (req, res) => {};
+exports.getLogsNames = async (req, res) => {
+  try {
+    const userId = req.decoded.id;
+    if (userId == 1) {
+      const command = `ls /var/log/nginx`;
+
+      exec(command, (error, stdout, stderr) => {
+        if (error) {
+          return res
+            .status(500)
+            .json({ error: "Failed to list log files", stderr });
+        }
+        const logFiles = stdout.trim().split("\n");
+        res.status(200).send({ logFiles });
+      });
+    } else {
+      return res.status(403).json({ message: "Unauthorized" });
+    }
+  } catch (err) {
+    return res.status(500).json({ message: "Error" });
+  }
+};
+
+exports.checkLogs = async (req, res) => {
+  try {
+    const userId = req.decoded.id;
+
+    if (userId !== 1) {
+      return res.status(403).json({ error: "Unauthorized" });
+    }
+
+    const logFile = req.body.logFile;
+
+    if (!logFile) {
+      return res.status(400).json({ error: "Log file path is required" });
+    }
+
+    const command = `tail -n 10 /var/log/nginx/${logFile}`; // Display last 10 lines of the log file
+
+    exec(command, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error tailing log file: ${error.message}`);
+        return res.status(500).json({ error: "Failed to tail log file" });
+      }
+
+      if (stderr) {
+        console.error(`Error tailing log file: ${stderr}`);
+        return res.status(500).json({ error: "Failed to tail log file" });
+      }
+
+      res.status(200).json({ logContent: stdout });
+    });
+  } catch (err) {
+    console.error(`Error in checkLogs: ${err.message}`);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};

@@ -25,8 +25,7 @@ router.post("/register", AuthController.register);
 router.post("/login", AuthController.login);
 router.get("/profile", verifyToken, AuthController.getUser);
 router.get("/checktoken", verifyToken, AuthController.checkToken);
-
-// It should be added in the products controller, not here. But i dont want to add the jwt at products controller
-// router.post("/add-product", verifyToken, AuthController.addProduct);
+router.get("/monitor/logNames", verifyToken, AuthController.getLogsNames);
+router.post("/monitor/logFile", verifyToken, AuthController.checkLogs);
 
 module.exports = router;

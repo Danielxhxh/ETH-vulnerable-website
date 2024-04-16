@@ -1,2 +1,0 @@
-1. missing package.jon files on GitHub(?) 
-2. Firefox doesn't work well, better with Chrome.

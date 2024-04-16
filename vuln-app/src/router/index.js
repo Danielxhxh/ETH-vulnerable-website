@@ -33,8 +33,8 @@ export default createRouter({
       props: true,
     },
     {
-      path: "/media",
-      component: () => import("../views/media.vue"),
+      path: "/monitor",
+      component: () => import("../views/monitor.vue"),
     },
   ],
 });
