@@ -37,7 +37,7 @@ export default {
     });
 
     const fetchProduct = (productName) => {
-      fetch(`http://localhost:3000/api/products/${productName}`)
+      fetch(`${import.meta.env.VITE_URL_BACKEND}/api/products/${productName}`)
         .then((response) => response.json())
         .then((data) => {
           product.value = data[0];

@@ -1,4 +1,5 @@
 const mysql = require("mysql2/promise");
+require("dotenv").config();
 
 let connection;
 
@@ -6,8 +7,8 @@ async function connectDatabase() {
   try {
     connection = await mysql.createConnection({
       host: "localhost",
-      user: "root",
-      password: "7even6ix",
+      user: process.env.MYSQL_USER,
+      password: process.env.MYSQL_PASSWORD,
       database: "eth",
     });
 
@@ -30,8 +31,6 @@ exports.productsList = async (req, res) => {
   }
 };
 
-// EX:  http://localhost:3000/articles/smth%27%20UNION%20SELECT%20%2A%2CNULL%20from%20users%20where%20%271%27%3D%271
-// https://www.urlencoder.org/
 exports.productDetail = async (req, res) => {
   try {
     var name = req.params.name;

@@ -34,11 +34,14 @@ export default {
 
     const fetchProfile = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/auth/profile", {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-          },
-        });
+        const response = await fetch(
+          `${import.meta.env.VITE_URL_BACKEND}/api/auth/profile`,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+          }
+        );
         const data = await response.json();
         profile.value = data;
       } catch (error) {

@@ -54,7 +54,7 @@ export default {
     async register() {
       try {
         const response = await fetch(
-          "http://localhost:3000/api/auth/register",
+          `${import.meta.env.VITE_URL_BACKEND}/api/auth/register`,
           {
             method: "POST",
             headers: {

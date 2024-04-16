@@ -43,16 +43,19 @@ export default {
   methods: {
     async login() {
       try {
-        const response = await fetch("http://localhost:3000/api/auth/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: this.email,
-            password: this.password,
-          }),
-        });
+        const response = await fetch(
+          `${import.meta.env.VITE_URL_BACKEND}/api/auth/login`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: this.email,
+              password: this.password,
+            }),
+          }
+        );
 
         if (response.ok) {
           const data = await response.json();

@@ -72,7 +72,7 @@ export default {
     },
     async buyProducts() {
       const response = await fetch(
-        "http://localhost:3000/api/auth/checkToken",
+        `${import.meta.env.VITE_URL_BACKEND}/api/auth/checkToken`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,

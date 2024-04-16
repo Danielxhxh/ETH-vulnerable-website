@@ -21,7 +21,7 @@ node_modules/
 creds.js
  
 # Private Files
-*.json
+#*.json
 *.csv
 *.csv.gz
 *.tsv
@@ -140,7 +140,7 @@ celerybeat.pid
 *.sage.py
  
 # Environments
-.env
+# .env
 .venv
 env/
 venv/

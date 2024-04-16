@@ -35,7 +35,7 @@ export default {
     });
 
     function fetchProducts() {
-      fetch("http://localhost:3000/api/products/")
+      fetch(`${import.meta.env.VITE_URL_BACKEND}/api/products/`)
         .then((response) => response.json())
         .then((data) => {
           products.value = data;

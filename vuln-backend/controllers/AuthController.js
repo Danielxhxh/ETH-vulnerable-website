@@ -1,14 +1,15 @@
 const mysql = require("mysql2/promise");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+require("dotenv").config();
 let connection;
 
 async function connectDatabase() {
   try {
     connection = await mysql.createConnection({
       host: "localhost",
-      user: "root",
-      password: "7even6ix",
+      user: process.env.MYSQL_USER,
+      password: process.env.MYSQL_PASSWORD,
       database: "eth",
     });
 
