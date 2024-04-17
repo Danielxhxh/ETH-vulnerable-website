@@ -20,6 +20,10 @@
     <br />
     <router-link to="/shop" class="link">Shop</router-link>
   </div>
+  <div v-else>
+    <h1>404</h1>
+    <h1>No Product Found</h1>
+  </div>
 </template>
 
 <script>

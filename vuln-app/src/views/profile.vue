@@ -1,5 +1,5 @@
 <template>
-  <div v-if="profile">
+  <div v-if="profile.user">
     <h1>Profile</h1>
     <div>
       <p>
@@ -11,7 +11,7 @@
       <p>
         Email:<span>{{ profile.user.email }}</span>
       </p>
-      <!-- Add more profile data here -->
+      <p>Password:<span>*******</span></p>
     </div>
     <button @click="logOut">Log Out</button>
   </div>
@@ -29,7 +29,7 @@ import { useRouter } from "vue-router";
 
 export default {
   setup() {
-    const profile = ref(null);
+    const profile = ref({ user: null });
     const router = useRouter();
 
     const fetchProfile = async () => {
@@ -46,6 +46,7 @@ export default {
         profile.value = data;
       } catch (error) {
         console.error(error);
+        profile.value = null;
       }
     };
 

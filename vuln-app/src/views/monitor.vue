@@ -2,6 +2,9 @@
   <div>
     <h1>Log Monitor</h1>
     <p>This page is reserved to the admin. If you are not admin, step back.</p>
+    <p v-if="logNames.value">
+      List of Nginx log files. Click on a log file to view its content.
+    </p>
     <pre>{{ logContent }}</pre>
     <ul>
       <li
