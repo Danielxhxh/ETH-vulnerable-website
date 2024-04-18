@@ -64,7 +64,7 @@ export default {
           localStorage.setItem("accessToken", accessToken);
           this.$router.push("/profile");
         } else {
-          // Handle error response
+          alert("Login failed");
           console.error("Login failed");
         }
       } catch (error) {

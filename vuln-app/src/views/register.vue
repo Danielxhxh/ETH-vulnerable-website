@@ -68,12 +68,12 @@ export default {
           }
         );
 
-        // TODO
-        // if (response.ok) {
-        //   this.$router.push("/profile");
-        // } else {
-        //   this.$router.push("/login");
-        // }
+        const data = await response.json();
+
+        if (data.message === "Registration successful") {
+          localStorage.setItem("accessToken", data.accessToken);
+          this.$router.push("/profile");
+        }
       } catch (error) {
         console.log(error);
       }
