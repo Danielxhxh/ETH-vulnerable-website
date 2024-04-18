@@ -2,7 +2,7 @@
   <div>
     <h1>Log Monitor</h1>
     <p>This page is reserved to the admin. If you are not admin, step back.</p>
-    <p v-if="logNames.value">
+    <p v-if="logNames.logFiles.length > 0">
       List of Nginx log files. Click on a log file to view its content.
     </p>
     <pre>{{ logContent }}</pre>
@@ -22,7 +22,7 @@
 export default {
   data() {
     return {
-      logNames: [],
+      logNames: { logFiles: [] },
       logContent: "",
     };
   },
@@ -43,7 +43,8 @@ export default {
           }
         );
         const data = await response.json();
-        this.logNames = data;
+        if (data.logFiles && data.logFiles.length > 0)
+          this.logNames.logFiles = data.logFiles;
       } catch (error) {
         console.log(error);
       }

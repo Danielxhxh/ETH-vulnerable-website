@@ -21,8 +21,8 @@
     <router-link to="/shop" class="link">Shop</router-link>
   </div>
   <div v-else>
-    <h1>404</h1>
-    <h1>No Product Found</h1>
+    <h1>404 - Not Found</h1>
+    <p>The page you're looking for does not exist.</p>
   </div>
 </template>
 

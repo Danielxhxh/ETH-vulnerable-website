@@ -36,5 +36,9 @@ export default createRouter({
       path: "/monitor",
       component: () => import("../views/monitor.vue"),
     },
+    {
+      path: "/:catchAll(.*)",
+      component: () => import("../views/error404.vue"),
+    },
   ],
 });
