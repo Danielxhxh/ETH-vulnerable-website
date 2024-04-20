@@ -13,11 +13,16 @@
       </p>
       <p>Password:<span>*******</span></p>
     </div>
+    <h2 v-if="profile.user.id == 1">
+      <router-link to="/monitor" class="link">Monitor logs</router-link>
+    </h2>
+
     <button @click="logOut">Log Out</button>
   </div>
 
   <div v-else>
     <p>Please, login first.</p>
+    <h2><router-link to="/login" class="link">Login</router-link></h2>
   </div>
 
   <h2><router-link to="/" class="link">Homepage</router-link></h2>

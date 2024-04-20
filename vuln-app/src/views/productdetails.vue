@@ -1,8 +1,8 @@
 <template>
   <div v-if="product" class="product-detail">
-    <h1>{{ product.name }}</h1>
+    <h1>{{ product.id }}. {{ product.name }}</h1>
     <p class="description">{{ product.description }}</p>
-    <p class="price">Price: ${{ product.price }}</p>
+    <p class="price">Price: $ {{ product.price }}</p>
     <img
       :src="product.image"
       alt="Product Image"
